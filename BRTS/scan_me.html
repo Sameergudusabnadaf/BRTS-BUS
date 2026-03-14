@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan to Open BRTS App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0fdfa; /* Light teal background */
+            margin: 0;
+            color: #0f172a;
+        }
+        .card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #0EA5E9; /* BRTS Blue */
+            margin-bottom: 0.5rem;
+        }
+        p {
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+        #qrcode {
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 1rem;
+            border: 2px dashed #cbd5e1;
+            margin: 0 auto;
+        }
+        .url {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #334155;
+            background: #f1f5f9;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Chigari BRTS App</h1>
+        <p>Scan this QR code with your mobile phone camera to open the app.</p>
+        <div id="qrcode"></div>
+        <div class="url">http://192.168.1.136:8080</div>
+        <p style="margin-top: 1rem; font-size: 0.85rem; max-width: 300px; margin-left: auto; margin-right: auto; line-height: 1.4;">
+            Make sure your phone is connected to the same Wi-Fi network as this computer.
+        </p>
+    </div>
+
+    <script>
+        const url = "http://192.168.1.136:8080";
+        new QRCode(document.getElementById("qrcode"), {
+            text: url,
+            width: 256,
+            height: 256,
+            colorDark : "#0f172a",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>
